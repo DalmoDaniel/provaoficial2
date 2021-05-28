@@ -1,1 +1,81 @@
+#menu da biblioteca
+def exibir_menu():
+    print('''Escolha uma opção:
 
+    1. Cadastrar um livro
+    2. Buscar livro pelo título
+    3. Buscar livro pelo autor
+    4. Buscar livros não lidos
+    ''')
+
+# cadastro dos livros
+def cadastrar(livros):
+    usuario = input('Usuário? ')
+    titulolivro = input('Título do livro? ')
+    autor = input('autor? ')
+    editora = input('editora? ')
+    anopub = int(input("Ano de publicção? "))
+    anocom = int(input("Ano da compra? "))
+    lido = input("O livro foi lido? 's' para sim e 'n' para não ")
+
+    if lido == 's' :
+        input("Ano em que foi lido: ")
+        livros.append((usuario, titulolivro, autor, editora, anopub, anocom, lido))
+
+
+#procura dos livros pelo título
+def titulo(livros):
+    titulolivro_desejado = input('Título do livro? ')
+    for livro in livros:
+        usuario, titulolivro, autor, editora, anopub, anocom, lido = livro
+        if titulolivro == titulolivro_desejado:
+            print(f'Título do livro: {titulolivro}, Autor: {autor}, Editora: {editora}')
+            break
+    else:
+        print(f'Usuário {titulolivro_desejado} não encontrado')
+
+
+#procura do livro pelo autor
+def autor(livros):
+    autor_desejado = input('Autor? ')
+    for livro in livros:
+        usuario, titulolivro, autor, editora, anopub, anocom, lido = livro
+        if usuario == autor_desejado:
+            print(f'Título do livro: {titulolivro}, Autor: {autor}')
+            break
+    else:
+        print(f'Usuário {autor_desejado} não encontrado')
+
+
+#livros não lidos
+def nlido(livros):
+    cont = 0
+    for livro in livros:
+        usuario, titulolivro, autor, editora, anopub, anocom, lido = livro
+        if lido == 'n':
+            print(f'Título do livro: {titulolivro}, Autor: {autor}')
+            cont = 1
+
+        if cont == 0:
+            print(f'Todos os títulos foram lidos')
+
+def main():
+    livros = []
+
+    while True:
+        exibir_menu()
+        opcao = int(input('Opção? '))
+        if opcao == 1:
+            cadastrar(livros)
+        elif opcao == 2:
+            titulo(livros)
+        elif opcao == 3:
+            autor(livros)
+        elif opcao == 4:
+            nlido(livros)
+        else:
+            print('Opção inválida')
+
+main()
+
+#fiz em forma de lista porque não consegui em forma de banco...
