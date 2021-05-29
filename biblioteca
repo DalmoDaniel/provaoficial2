@@ -32,7 +32,7 @@ def titulo(livros):
             print(f'Título do livro: {titulolivro}, Autor: {autor}, Editora: {editora}')
             break
     else:
-        print(f'Usuário {titulolivro_desejado} não encontrado')
+        print(f'Livro {titulolivro_desejado} não encontrado')
 
 
 #procura do livro pelo autor
@@ -44,7 +44,7 @@ def autor(livros):
             print(f'Título do livro: {titulolivro}, Autor: {autor}')
             break
     else:
-        print(f'Usuário {autor_desejado} não encontrado')
+        print(f'Autor {autor_desejado} não encontrado')
 
 
 #livros não lidos
